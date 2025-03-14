@@ -1,0 +1,24 @@
+---
+title: "RNA-seq data 1"
+author: "julieanna"
+format: html
+editor: visual
+---
+
+## Description
+
+Using RNA-seq we will be comparing data from two treatments of *Drosophila* larva. We will be looking to see if the genes are expressed differently between treatments using edgeR.
+
+```{r}
+design <- model.matrix(~grouping)
+eset_dge <- edgeR::estimateDisp(count_dge, design)
+fit <- edgeR::glmQLFit(eset_dge, design)
+result <- edgeR::glmQLFTest(fit, coef=2)
+topTags(result)
+```
+
+The first column show us the gene transcripts we are studying. The next column LogFC is use to show the difference in gene expression between samples. LogCPM represents how much the gene is expressed overall samples. The F value and P value are used to see if the changes in gene expression are natural or random. FDR is also used so we don't falsely identify genes the wrong way.
+
+## Flybase
+
+Using flybase we looked at different gene that are found in our data. I looked at the gene FBgn0037424 which is also known as Osi 15 and is located in the endosome membrane. Since it is involved with the development of the open tracheal system it makes since that the gene would be deferentially expressed between the first and second instar as it would change as the fly grows older.
