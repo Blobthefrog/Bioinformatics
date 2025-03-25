@@ -1,0 +1,53 @@
+---
+title: "Evolutioary trees"
+author: "Julieanna"
+format: html
+editor: visual
+---
+
+## Description
+
+description
+
+```{r}
+ggtree(itol)
+```
+
+```{r}
+ggtree(itol) +
+  geom_tiplab(color = "blue", size = 1)
+```
+
+```{r}
+ggtree(itol, layout = "circular") +
+  geom_tiplab(color = "blue", size = 2)
+```
+
+```{r}
+ggtree(itol, layout = "circular") +
+  geom_tiplab(color = "blue", size = 2) +
+  geom_strip(13, 14, color = "red", barsize = 1)
+
+
+```
+
+```{r}
+ggtree(itol) +
+  coord_flip() +
+  scale_x_reverse()
+
+```
+
+```{r}
+ggtree(itol, layout = "unrooted")
+```
+
+```{r}
+ggtree(mammal) +
+  geom_tiplab(color = "blue", size = 2)
+```
+
+```{r}
+ggtree(mammal, layout = "circular") +
+  geom_tiplab(color = "blue", size = 2)
+```
