@@ -7,21 +7,33 @@ editor: visual
 
 ## Description
 
-description
+In this session we will be learning how to construct phylogeny trees in R studio. We will be looking at different ways to visualize the data in an appropriate way depending on the research study.
+
+## Mammal tree
+
+The phylogeny tree seems is about mammals and how they are related to other species. It makes sense that apes are the most common species to us but I thought it was interesting that they included Bovine and rodents as out groups as even though they are mammals as they look nothing like the other groups.
+
+## Visualizing trees
 
 ```{r}
 ggtree(itol)
 ```
+
+This is a basic out line of the tree of life.
 
 ```{r}
 ggtree(itol) +
   geom_tiplab(color = "blue", size = 1)
 ```
 
+This is the same basic tree of life but with labels, It is hard to read like this.
+
 ```{r}
 ggtree(itol, layout = "circular") +
   geom_tiplab(color = "blue", size = 2)
 ```
+
+This circular graph is easier to read and visualize.
 
 ```{r}
 ggtree(itol, layout = "circular") +
@@ -31,6 +43,8 @@ ggtree(itol, layout = "circular") +
 
 ```
 
+This version has a specific section of the tree highlighted.
+
 ```{r}
 ggtree(itol) +
   coord_flip() +
@@ -38,16 +52,28 @@ ggtree(itol) +
 
 ```
 
+This version is better for visualization and seeing the difference in time between species.
+
 ```{r}
 ggtree(itol, layout = "unrooted")
 ```
+
+This is an unrooted tree that is used when comparing species without the component of time.
 
 ```{r}
 ggtree(mammal) +
   geom_tiplab(color = "blue", size = 2)
 ```
 
+A basic phylogeny tree of mammals looking from the lenses of humans
+
 ```{r}
 ggtree(mammal, layout = "circular") +
   geom_tiplab(color = "blue", size = 2)
 ```
+
+This is a basic circular tree of mammals.
+
+## Conclusion
+
+In this section we learned how to create phylogeny trees and different ways of visualizing them. I am curious how an unrooted tree would be used in practice as I feel like I would need more experience to understand it truly even if I understand conceptually.
